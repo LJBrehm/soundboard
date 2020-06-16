@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Jim Soundboard</title>
+    <style>
+        button {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Jim Soundboard</h1>
+    <h2>My friends missed me and I have a computer science degree that I couldn't put to any better use.</h2>
+    <img th:src="@{/images/jim.PNG}" />
+    <div>
+        <button onclick="playSound('classic')">What A Classic</button>
+    </div>
+    <div>
+        <button onclick="playSound('vague')">It's all very vague</button>
+    </div>
+    <span/>
+    <div>
+        <button onclick="playSound('food')">A young man's game</button>
+    </div>
+    <div>
+        <button onclick="playSound('shine')">Shine bright</button>
+    </div>
+    <div>
+        <button onclick="playSound('boyardee')">Chef Boyardee</button>
+    </div>
+</body>
+
+<audio id="classic">
+    <source th:src="@{sounds/classic.mpeg}" type="audio/mpeg">
+</audio>
+
+<audio id="vague">
+    <source th:src="@{sounds/vague.mpeg}" type="audio/mpeg">
+</audio>
+
+<audio id="shine">
+    <source th:src="@{sounds/shine.mpeg}" type="audio/mpeg">
+</audio>
+
+<audio id="food">
+    <source th:src="@{sounds/food.mpeg}" type="audio/mpeg">
+</audio>
+
+<audio id="boyardee">
+    <source th:src="@{sounds/boyardee.mpeg}" type="audio/mpeg">
+</audio>
+
+<script>
+    function playSound(name) {
+        var sound = document.getElementById(name);
+        sound.play();
+    }
+</script>
+
+</html>
